@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    /* border: 2px solid red; */
+    font-family: 'Playwrite IN', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    /* height: 5rem; */
+}
+
+nav {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.usa-flag {
+    margin-right: 2rem;
+}
+
+.right img {
+    height: 4rem;
+    animation: flagAnimation 2s ease-in-out infinite alternate;
+}
+
+.right img:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+@keyframes flagAnimation {
+    from {
+        transform: rotate(-10deg);
+    }
+    to {
+        transform: rotate(10deg);
+    }
+}
+
+.input-container {
+    /* border: 2px solid red; */
+    height: 5rem;
+    background-color: #ffffff60;
+    position: relative;
+    padding: 0 3rem 0 3rem;
+    /* margin-bottom: 25px; */
+    margin-top: 25px;
+}
+
+.word-input {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 400;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    border-radius: 99px;
+    border: 3px solid cadetblue;
+    background: rgba(0, 0, 0, 0.02);
+    outline: none;
+    transform: 0.25s border;
+    padding-right: 45px;
+}
+
+.word-input:focus {
+    border: 3px solid hsl(182, 25%, 40%);
+}
+
+.word-input::placeholder {
+    color: rgba(0, 0, 0, 0.75);
+}
+
+button {
+    background: none;
+    /* display: flex; */
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.search-btn {
+    position: absolute;
+    right: calc(3rem + 20px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.meaning-container {
+    /* border: 2px solid red; */
+    position: relative;
+    padding: 0 3rem 0 3rem;
+    margin-bottom: 25px;
+    /* margin-top: 25px; */
+}
+
+.meaning-container.box {
+    border: solid 2px #0000001c;
+    border-radius: 15px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    margin-inline: auto;
+    transition: all 0.5s ease;
+}
+
+.powered-by {
+    position: absolute;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    top: 0;
+    right: calc(3rem + 20px);
+    transition: all 0.3s ease;
+}
+
+.powered-by a {
+    text-decoration: none;
+    color: #004a9e;
+    transition: all 0.3s ease;
+}
+
+.powered-by i {
+    color: rgba(255, 0, 0, 0.719);
+}
+
+.title-container {
+    /* border: 2px solid red; */
+    padding-top: 2rem;
+}
+
+.title {
+    font-family: 'Merriweather', sans-serif;
+    font-size: clamp(1.75rem, 7.25vw, 4.25rem);
+    font-weight: 700;
+    padding-left: 20px;
+    text-transform: lowercase; 
+    line-height: 1.25;
+    color: #004a9e;
+    transition: 0.8s;
+}
+
+.title.not-found {
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(1.5rem, 2rem, 3.75rem);
+    font-weight: 400;
+    text-transform: none;
+    color: #000;
+    transform: 0.8s all ease;
+}
+
+.first-element {
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(1.5rem, 2rem, 3.75rem);
+    font-weight: 500;
+    padding-left: 20px;
+    text-transform: none;
+    color: #000;
+    transform: 0.8s all ease;
+}
+
+.pronunciation {
+    font-family: 'Merriweather', sans-serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    padding: 0.5rem;
+    color: #707070;
+    transition: 0.8s all ease;
+}
+
+.meaning-container {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.25rem;
+    padding-top: 1.5rem;
+    padding-left: 2rem;
+}
+
+.meaning {
+    padding-top: 15px;
+    padding-left: 20px;
+}
+
+/* .meaning span {
+    color: #707070;
+} */
+
+.synonyms {
+    color: #004a9e;
+    font-size: 0.875rem;
+    padding-top: 1.3rem;
+    /* padding-bottom: 40px; */
+    /* padding-bottom: 1.5rem; */
+    padding-left: calc(25px + 2rem);
+}
+
+.example {
+    color: #5e0d5e;
+    font-style: italic;
+    padding-left: calc(24px + 2rem);
+}
+
+.synonyms span {
+    font-family: 'Merriweather', sans-serif;
+}
+
+.meaning span:nth-child(1) {
+    color: #004a9e;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Dictionary</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">
+                <h1><i class='bx bx-book-open'></i> English Dictionary</h1>
+            </div>
+            <div class="right">
+                <ul><img src="images/flag_usa.png" alt="USA" class="usa-flag"></ul>
+                <ul><img src="images/flag_uk.png" alt="UK" class="uk-flag"></ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="input-container">
+        <input type="text" placeholder="Search a word" class="word-input" id="word-input">
+        <button class="search-btn" id="search-btn">
+            <i class='bx bx-search-alt-2'></i>
+        </button>
+    </section>
+
+    <section class="meaning-container">
+        <p class="powered-by">Powered by <a href="https://dictionaryapi.dev/" target="_blank">Dictionary API</a> <i class='bx bxs-book-bookmark'></i></p>
+        <div class="title-container">
+            <span class="title" id="title"></span>
+            <span class="pronunciation" id="pronunciation"></span>
+            <button class="audio-btn" id="audio-btn"><i class='bx bxs-volume-full'></i></button>
+            <audio id="audio"></audio>
+        </div>
+
+        <div class="definitions-container" id="definitions-container">
+            <p id="meaning"></p>
+            <p id="description"></p>
+            <p id="synonyms"></p>
+        </div>
+
+        <!-- <div class="meaning-container">
+            <p class="meaning" id="meaning"><span class="description"></span></p>
+            <p class="synonyms"><span><strong></strong></span></p>
+            <p class="meaning" id="meaning">1.&nbsp;&nbsp;&nbsp;&nbsp;<span class="description">excl.</span> To write something 1</p>
+            <p class="synonyms">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Syn.: <span><strong>soso, desabrido, insulso, desaborido, chirles, bombo.</strong></span></p>
+            <p class="meaning" id="meaning">2.&nbsp;&nbsp;&nbsp;&nbsp;<span>n.</span> To write something 2</p>
+            <p class="synonyms">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Syn.: <span><strong>soso, desabrido, insulso, desaborido, chirles, bombo.</strong></span></p>
+            <p class="meaning" id="meaning">2.&nbsp;&nbsp;&nbsp;&nbsp;<span>v.</span> To write something 3</p>
+            <p class="synonyms">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Syn.: <span><strong>soso, desabrido, insulso, desaborido, chirles, bombo.</strong></span></p>
+        </div> -->
+    </section>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
