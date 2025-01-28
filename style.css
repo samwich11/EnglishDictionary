@@ -283,7 +283,7 @@ button {
     }
 
     .definitions-container {
-        border: 2px solid red;
+        /* border: 2px solid red; */
         padding-left: 0;
         padding-right: 0;
         margin-left: 0;
@@ -291,10 +291,10 @@ button {
     }
 
     .synonyms {
-        padding-left: 35px;
+        padding-left: 10Px;
     }
 
     .example {
-        padding-left: 35px;
+        padding-left: 10px;
     }
 }
