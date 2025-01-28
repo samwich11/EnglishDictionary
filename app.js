@@ -1,5 +1,6 @@
 const wordInput = document.getElementById('word-input');
 const searchBtn = document.getElementById('search-btn');
+const navTitle = document.getElementById('nav-title')
 const titleContainer = document.getElementById('title-container');
 const meaningContainer = document.getElementById('meaning-container');
 const title = document.getElementById('title');
@@ -12,8 +13,52 @@ const audio = document.getElementById('audio');
 const definitionsContainer = document.getElementById('definitions-container');
 
 audioBtn.style.display = 'none';
+
+// Messages
+const msg = {
+    msg1: "Did you know? The word 'dictionary' comes from the Latin 'dictionarius', meaning a book of words ;)",
+    msg2: "Unlock the full power of words 🥸",
+    msg3: "Curious about a word? Type it in below and unlock its full potential!",
+    msg4: "More than just definitions, hear how words are pronounced and see them in action!"
+};
+
+const keys = Object.keys(msg);        // Get the keys of th object
+const messages = Object.values(msg);  // Convert object to an array
+
+// Select a random message, duplicates may occur
+const randomKey = keys[Math.floor(Math.random() * keys.length)];
+const randomMsg = msg[randomKey];
+
+// Select a random message, no duplicates (better for user experience)
+let displayedMsg = JSON.parse(localStorage.getItem('displayedMsg')) || [];  // getItem returns the value of the key, if the key doesn't exist, it returns null
+const getRandomMsg = () => {
+    const availableMsg = messages.filter((_, index) => !displayedMsg.includes(index));
+    // console.log(displayedMsg);
+    // console.log(availableMsg);
+
+    if (availableMsg.length === 0) {
+        // Reset if all messages have been displayed
+        displayedMsg = [];
+        localStorage.removeItem('displayedMsg');
+        return getRandomMsg();
+    }
+
+    const randomIndex = Math.floor(Math.random() * availableMsg.length);
+    const selectedMsg = availableMsg[randomIndex];
+
+    // Get the index of the selected message to uodate displayedMsg
+    const selectedIndex = messages.indexOf(selectedMsg);
+    displayedMsg.push(selectedIndex);
+
+    // Update localStorage
+    localStorage.setItem('displayedMsg', JSON.stringify(displayedMsg));
+
+    return selectedMsg;
+};
+
 const firstElement = document.createElement('p');
-firstElement.innerText = "Did you know? The word 'dictionary' comes from the Latin 'dictionarius', meaning a book of words ;)"
+// firstElement.innerText = randomMsg;
+firstElement.innerText = getRandomMsg();;
 firstElement.classList.add('first-element');
 definitionsContainer.appendChild(firstElement);
 
@@ -43,8 +88,8 @@ async function fetchApi(word) {
         const phoneticsText = result[0].phonetics.find((phonetic) => phonetic.text);
         console.log(phoneticsAudio);
         console.log(phoneticsText);
-        
-        
+
+
         if (phoneticsAudio) {
             // Set pronunciation (if available)
             pronunciation.innerText = phoneticsAudio.text || (phoneticsText ? phoneticsText.text : '');
@@ -211,6 +256,20 @@ wordInput.addEventListener('keyup', (e) => {
     }
 });
 
+navTitle.addEventListener('click', () => {
+    window.location.href = 'index.html';
+    navTitle.style.cursor = 'pointer';
+});
+
+// Search word by clicking on the definition
+// definitionsContainer.addEventListener('click', (e) => {
+//     const clickedWord = e.target.innerText.trim();
+
+//     if(clickedWord && e.target.classList.contains('meaning')){
+//         fetchApi(clickedWord);
+//     }
+// });
+
 searchBtn.addEventListener('click', () => {
     const word = wordInput.value.trim();
     if (word) {
@@ -219,6 +278,12 @@ searchBtn.addEventListener('click', () => {
         wordInput.blur();
     } else {
         title.innerText = 'Please enter a word';
+        // title.classList.add('not-found')
+        title.classList.add('first-element')
+        pronunciation.innerText = '';
+        definitionsContainer.innerHTML = '';
+        audio.src = '';
+        audioBtn.style.display = 'none';
     }
 });
 

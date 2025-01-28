@@ -26,6 +26,10 @@ nav {
     align-items: center;
 }
 
+#nav-title {
+    cursor: pointer;
+}
+
 .right {
     display: flex;
     justify-content: center;
@@ -58,11 +62,19 @@ nav {
 .input-container {
     /* border: 2px solid red; */
     height: 5rem;
-    background-color: #ffffff60;
+    /* background-color: #ffffff60; */
+    background-color: rgba(211, 211, 211, 0.25);
     position: relative;
     padding: 0 3rem 0 3rem;
     /* margin-bottom: 25px; */
     margin-top: 25px;
+    transition: all 0.5s ease;
+}
+
+/* Apply focues-within because a child element is focused */
+.input-container:focus-within {
+    background-color: rgba(211, 211, 211, 0.35);
+    transition: all 0.5s ease;
 }
 
 .word-input {
@@ -84,6 +96,7 @@ nav {
 
 .word-input:focus {
     border: 3px solid hsl(182, 25%, 40%);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }
 
 .word-input::placeholder {
@@ -143,17 +156,19 @@ button {
 .title-container {
     /* border: 2px solid red; */
     padding-top: 2rem;
+    margin-left: 20px;
 }
 
 .title {
     font-family: 'Merriweather', sans-serif;
     font-size: clamp(1.75rem, 7.25vw, 4.25rem);
     font-weight: 700;
-    padding-left: 20px;
+    /* padding-left: 20px; */
     text-transform: lowercase; 
     line-height: 1.25;
     color: #004a9e;
     transition: 0.8s;
+    cursor: pointer;
 }
 
 .title.not-found {
@@ -185,6 +200,7 @@ button {
 }
 
 .meaning-container {
+    /* border: 2px solid red; */
     font-family: 'Lato', sans-serif;
     font-size: 1.25rem;
     padding-top: 1.5rem;
@@ -192,8 +208,10 @@ button {
 }
 
 .meaning {
+    /* border: 2px solid red; */
     padding-top: 15px;
-    padding-left: 20px;
+    margin-left: 20px;
+    cursor: pointer;
 }
 
 /* .meaning span {
@@ -206,7 +224,7 @@ button {
     padding-top: 1.3rem;
     /* padding-bottom: 40px; */
     /* padding-bottom: 1.5rem; */
-    padding-left: calc(25px + 2rem);
+    padding-left: calc(20px + 1rem);
 }
 
 .example {
@@ -221,4 +239,62 @@ button {
 
 .meaning span:nth-child(1) {
     color: #004a9e;
+}
+
+@media screen and (max-width: 720px) {
+    .left {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        font-size: 0.875rem;
+        text-align: center;
+    }
+
+    .right {
+        display: none;
+    }
+
+    .input-container input::placeholder {
+        font-size: 0.875rem;
+    }
+
+    .powered-by {
+        font-size: 0.65rem;
+        padding-top: 10px;
+    }
+
+    .meaning-container {
+        /* border: 2px solid red; */
+        font-family: 'Lato', sans-serif;
+        font-size: 1rem;
+        padding-top: 1.5rem;
+        /* padding-left: 2rem; */
+    }
+
+    .meaning {
+        /* border: 2px solid red; */
+        padding-top: 15px;
+        /* margin-left: 20px; */
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+    .definitions-container {
+        border: 2px solid red;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .synonyms {
+        padding-left: 35px;
+    }
+
+    .example {
+        padding-left: 35px;
+    }
 }
