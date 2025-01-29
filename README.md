@@ -9,5 +9,5 @@ This is an English Dictionary web application built HTML, CSS, JavaScript. It le
 - Responsive design. Compatible with various screen sizes and devices.
 - Error handling. Displays an error message if the word is not found.
 
-  ## Demo
-  https://samwich11.github.io/EnglishDictionary/index.html
+## Demo
+https://samwich11.github.io/EnglishDictionary/index.html
