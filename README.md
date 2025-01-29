@@ -1,6 +1,4 @@
 # EnglishDictionary
-
-## Overview
 This is an English Dictionary web application built HTML, CSS, JavaScript. It leverages the Free DIctionary API to provide real-time word definitions, phonetic transcriptions, and example sentences. The application is designed to be lightweight and user-friendly.
 
 ## Features
